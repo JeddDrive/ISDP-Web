@@ -1,0 +1,107 @@
+# ***About htaccess***
+# htaccess does not allow inline comments, put all comments above the rules they apply to
+# htaccess starts from the top of the document and continues its way down until it gets a match, when a match is found it replaces the url with the result (ie the right side of RewriteRule) after a match is found it continues down the file meaning you can match multiple times. 
+
+# ***Common Flags***
+# [NC] - No Case or case insensitive
+# [END] - immediately exit the file after finding a match
+# [L] - Last, similar to END, means this is the last rule applied, used with [QSA]
+# [QSA] - Query String Attached, if the user passed in a query string capture it and append it to the end of the redirect
+# [PT] - Passthrough, the remapped URL is treated as a URI instead of a file path. This allows us to rewrite the url to something that will also be captured by another rewrite rule
+
+#URL mapping for RESTFUL API's
+RewriteEngine on
+
+#### --- API's --- ####
+# Author: Nicholas Jeddore
+# Description: These are the re-mapped API's for the web portion of my project in ISDP.
+
+#### --- Txns (Orders) --- ####
+#URL for all new and assembling online orders for a particular site
+RewriteRule ^bullseyeService/txns/onlineorders/([0-9]{1,4})$ api/txnService.php?siteID=$1 [NC]
+
+#URL for the store orders for a particular ship date
+RewriteRule ^bullseyeService/txns/storeorders$ api/txnService.php?shipDate=$1 [NC]
+
+#URL for one particular txn based on the txn ID
+RewriteRule ^bullseyeService/txns/([0-9]{1,10})$ api/txnService.php?txnID=$1 [NC]
+
+#URL for one particular online order based on the txn ID
+RewriteRule ^bullseyeService/txns/onlineOrder/([0-9]{1,10})$ api/txnService.php?onlineOrderID=$1 [NC]
+
+#URL for the last txn in the DB (the one with the highest txn ID)
+RewriteRule ^bullseyeService/txns/lastTxn$ api/txnService.php?lastTxn=$1 [NC]
+
+#URL for getting one or more txns based on the notes
+RewriteRule ^bullseyeService/txns/notes/(\w{1,200})$ api/txnService.php?notes=$1 [NC]
+
+#### --- TxnItems (Order Items) --- ####
+#URL for getting all txn items for one txn/inserting a txn item
+RewriteRule ^bullseyeService/txnitems/([0-9]{1,4})$ api/txnItemsService.php?txnID=$1 [NC]
+
+#URL for getting one txn item for a particular txn
+RewriteRule ^bullseyeService/txnitems/([0-9]{5,6})$ api/txnItemsService.php?itemID=$1 [NC]
+
+#URL for getting the delivery weight for store orders on a particular ship date
+RewriteRule ^bullseyeService/txnitems/deliveryWeight$ api/txnItemsService.php?shipDate=$1 [NC]
+
+#### --- UserPermission --- ####
+#URL for getting the permissions that one employee has
+RewriteRule ^bullseyeService/userpermissions/employee/([0-9]{1,4})$ api/userPermissionService.php?employeeID=$1 [NC]
+
+#### --- Delivery --- ####
+#URL for all deliveries (collective)
+RewriteRule ^bullseyeService/deliveries$ api/deliveryService.php [NC]
+
+#URL for one delivery ID which should be anywhere between 1 to 5 digits long
+RewriteRule ^bullseyeService/deliveries/([0-9]{1,5})$ api/deliveryService.php?deliveryID=$1 [NC]
+
+#### --- Vehicle --- ####
+#URL for all vehicles (collective)
+RewriteRule ^bullseyeService/vehicles$ api/vehicleService.php [NC]
+
+#URL for one vehicle (vehicle type) which should be a string
+RewriteRule ^bullseyeService/vehicles/(\w{3,10})$ api/vehicleService.php?vehicleType=$1 [NC]
+
+#### --- Employee --- ####
+#URL for all employees (collective)
+RewriteRule ^bullseyeService/employees$ api/employeeService.php [NC]
+
+#URL for one employee (username) which should be a string
+RewriteRule ^bullseyeService/employees/(\w{2,100})$ api/employeeService.php?username=$1 [NC]
+
+#URL to update an employee to be locked, based on the employee ID
+RewriteRule ^bullseyeService/employees/locked/([0-9]{1,4})$ api/employeeService.php?locked=$1 [NC]
+
+#URL to update an employee's password, based on the employee ID
+RewriteRule ^bullseyeService/employees/password/([0-9]{1,4})$ api/employeeService.php?password=$1 [NC]
+
+#URL to subtract 1 from employee's login attempts, based on the employee ID
+RewriteRule ^bullseyeService/employees/loginAttemptsMinusOne/([0-9]{1,4})$ api/employeeService.php?loginAttemptsMinusOne=$1 [NC]
+
+#URL to set employee's login attempts back to 3, based on the employee ID
+RewriteRule ^bullseyeService/employees/loginAttemptsToThree/([0-9]{1,4})$ api/employeeService.php?loginAttemptsThree=$1 [NC]
+
+#URL to set employee's madeFirstLogin to 1 (once they have logged in), based on the employee ID
+RewriteRule ^bullseyeService/employees/madeFirstLogin/([0-9]{1,4})$ api/employeeService.php?madeFirstLogin=$1 [NC]
+
+#### --- PasswordSalt --- ####
+#URL for one employee's password salt which should be a string
+RewriteRule ^bullseyeService/passwordSalt/employee/([0-9]{1,4})$ api/passwordSaltService.php?employeeID=$1 [NC]
+
+#### --- Site --- ####
+#URL for all sites (collective)
+RewriteRule ^bullseyeService/sites$ api/siteService.php [NC]
+
+#URL for all sites (collective) - stores only
+RewriteRule ^bullseyeService/sites/stores$ api/siteService.php?storesOnly=$1 [NC]
+
+#URL for one site (based on site ID) which should be an integer
+RewriteRule ^bullseyeService/sites/([0-9]{1,2})$ api/siteService.php?siteID=$1 [NC]
+
+#### --- Inventory --- ####
+#URL for all inventory for a site (collective)
+RewriteRule ^bullseyeService/inventory/site/([0-9]{1,2})$ api/inventoryService.php?siteID=$1 [NC]
+
+#URL for one inventory item at a site which should be an ID that is 5 or 6 digits long
+RewriteRule ^bullseyeService/inventory/siteItem/([0-9]{5,6})$ api/inventoryService.php?itemID=$1 [NC]

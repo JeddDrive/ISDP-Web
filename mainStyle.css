@@ -1,0 +1,313 @@
+body {
+  font-family: 'Poppins', 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ID to override/customize bootstrap navbar properties - for the first and main navbar */
+#navbarOne {
+  background-color: #a64035;
+  font-weight: bold;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+/* ID for the navbar image */
+#navbarOneImage {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.4rem;
+  cursor: default;
+}
+
+/* Regular navbar links (non-active) */
+.nav-link {
+  color: #f3f3f3;
+}
+
+/* When hovering over the non-active navbar links */
+.nav-link:hover:not(:disabled) {
+  color: #130d0d;
+  transition: all 0.2s 0.2s;
+  transition-timing-function: ease-in-out;
+  border-radius: 0.7rem;
+}
+
+.nav-link:disabled {
+  color: rgb(120, 119, 119);
+}
+
+/* Class for the links of the second navbar for the administrator */
+.navbarTwoLink:hover {
+  color: #eded65;
+}
+
+/* ID for the title of the second admin navbar */
+#navbarTwoTitle {
+  cursor: default;
+}
+
+/* ID for the navbar heading*/
+#navbarHeading {
+  color: #ffffff;
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+/* ID for the main login heading (ex. login screen heading) */
+#loginHeading {
+  letter-spacing: 7px;
+  text-align: center;
+  font-size: 250%;
+  font-family: 'Outfit', Impact, 'Gill Sans', sans-serif;
+}
+
+/* ID for the customer button */
+#btnCustomer,
+#btnCancel {
+  margin-bottom: 0.85em;
+  margin-top: 0.85em;
+  margin-left: 2em;
+  letter-spacing: 1px;
+  background-color: #555555;
+  color: #f4eae6;
+  font-weight: bold;
+  padding: 0.5em 1em;
+}
+
+/* ID for the login button */
+#btnLogin,
+#btnResetPassword {
+  margin-bottom: 0.85em;
+  margin-top: 0.85em;
+  margin-left: 2em;
+  letter-spacing: 1px;
+  background-color: #555555;
+  color: #f4eae6;
+  font-weight: bold;
+  padding: 0.5em 1em;
+}
+
+/* When hovering over the login and customer btns that are not disabled */
+#btnCustomer:hover:not(:disabled),
+#btnLogin:hover:not(:disabled),
+#btnResetPassword:hover:not(:disabled),
+#btnCancel:hover:not(:disabled) {
+  background-color: #cecece;
+  color: black;
+  transition: all 0.3s 0.1s;
+  transition-timing-function: ease-in-out;
+  box-shadow: 0 0.5em 0.5em -0.3em #cecece;
+}
+
+/* When focusing on the username and password inputs (IDs) */
+#txtUsername:focus,
+#txtPassword:focus,
+#txtPasswordOne:focus,
+#txtPasswordTwo:focus {
+  background-color: #c6f9ff;
+  transition: all 0.2s 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* ID for the logout link */
+/* #logoutLink {} */
+
+/* Media Query for under 768px */
+@media only screen and (max-width: 768px) {
+  #navbarOneImage {
+    width: 4.5rem;
+    height: 3rem;
+  }
+
+  .nav-link {
+    padding-left: 0.5rem;
+  }
+
+  #adminNavbarTwo {
+    margin-bottom: 1em;
+  }
+}
+
+/* Media Query for over 992px */
+@media only screen and (min-width: 992px) {
+  .nav-link {
+    font-size: 108%;
+  }
+}
+
+.Form-main {
+  border: solid 0.5px;
+  padding: 15px;
+  padding-top: 20px;
+  border-radius: 5px;
+  background-color: #a64035;
+  color: white;
+  position: relative;
+  top: 100px;
+  margin: auto;
+  height: auto;
+  width: 650px;
+}
+
+/* ID for the login form */
+#frmLogin,
+#frmResetPassword {
+  font-weight: bold;
+}
+
+/* ID for the logo image on the login page */
+#loginImage {
+  width: 9%;
+}
+
+/* Container on the login page that contains the main heading and bowling pins image */
+#loginImageAndHeadingContainer {
+  text-align: center;
+  margin-top: 1.2%;
+}
+
+/* Class for dropdown items */
+.dropdownItem {
+  font-weight: bold;
+}
+
+/* ID for the password checkbox */
+#passwordCheckbox {
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+/* ID for the div containing the forgot password link */
+#forgotPasswordDiv {
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 0;
+}
+
+/* ID for the forgot password link */
+#forgotPasswordLink {
+  color: rgb(46, 182, 255);
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+
+/* ID for hovering over the forgot password link */
+#forgotPasswordLink:hover {
+  cursor: pointer;
+}
+
+/* ID for the username on the reset password page */
+#username {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* ID for the confirm password textbox */
+#txtPasswordTwo {
+  margin-left: 0.3em;
+  width: 104%;
+}
+
+/* ID for the main heading (ex. Homepage) */
+#mainHeading {
+  margin-top: 0;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#infoContainer {
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1.5em;
+}
+
+/* ID for the user info */
+#userInfo {
+  margin-left: 3em;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* ID for the home link in the navbar */
+#homeLink {
+  margin-right: 2em;
+}
+
+/* ID for the active navbar link */
+#activeLink {
+  color: #8ff08f;
+  cursor: default;
+  margin-right: 2em;
+}
+
+/* When hovering over the active navbar link */
+#activeLink:hover {
+  color: #8ff08f;
+  transition: all 0.2s 0.2s;
+  transition-timing-function: ease-in-out;
+  border-radius: 0.7rem;
+}
+
+/* ID for the help image */
+#helpImage {
+  width: 3%;
+  float: right;
+  margin-top: 1.5em;
+  margin-right: 1.5em;
+}
+
+#helpImage:hover {
+  cursor: pointer;
+}
+
+/* ID for the online orders search box */
+#searchBox {
+  width: 25%;
+  margin-left: 2em;
+}
+
+/* ID for the online search label */
+#searchLabel {
+  margin-left: 2em;
+  margin-bottom: 0;
+}
+
+/* ID for the view orders btn */
+#viewBtn {
+  margin-left: 2em;
+  margin-bottom: 0.85em;
+  margin-top: 0.4em;
+  letter-spacing: 1px;
+  background-color: #4297a0;
+  color: #f7f2f0;
+  font-weight: bold;
+  padding: 1em 2em;
+}
+
+/* ID for the view inventory btn */
+#viewInventoryBtn {
+  margin-left: 0;
+  margin-bottom: 0.85em;
+  margin-top: 2em;
+  letter-spacing: 1px;
+  background-color: #4297a0;
+  color: #f7f2f0;
+  font-weight: bold;
+  padding: 1em 2em;
+}
+
+/* When hovering over the view orders btn when not disabled */
+#viewBtn:hover:not(:disabled),
+#viewInventoryBtn:hover:not(:disabled) {
+  background-color: #8aebf6;
+  color: black;
+  transition: all 0.3s 0.1s;
+  transition-timing-function: ease-in-out;
+  box-shadow: 0 0.5em 0.5em -0.3em #8aebf6;
+}

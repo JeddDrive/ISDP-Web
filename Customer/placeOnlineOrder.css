@@ -1,0 +1,155 @@
+#tableContainer {
+    margin-left: 2em;
+}
+
+table {
+    margin-top: 1.5rem;
+    margin-bottom: 3em;
+}
+
+table,
+td,
+th {
+    border: solid thin #525151;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0.3em;
+    text-align: center;
+}
+
+th {
+    background-color: #3d3d50;
+    color: #f4eae6;
+    font-weight: bold;
+}
+
+tr:not(:first-child) {
+    cursor: pointer;
+}
+
+input,
+select {
+    font-size: 1.1rem;
+}
+
+/* ID for the sites container */
+#sitesContainer {
+    margin-left: 2em;
+}
+
+/* Class for selected rows in the table */
+.selectedRow {
+    background-color: #b8ff92;
+}
+
+/* Class for added rows/items in the table */
+#addedRow {
+    background-color: #8bb3ff;
+}
+
+/* Class for the numeric up-down inputs in the table */
+.nudQuantity {
+    width: 25%;
+}
+
+.mainBtn {
+    background-color: #4297a0;
+    color: #f4eae6;
+    font-weight: bold;
+    padding: 1em 2em;
+    margin-right: 0.7em;
+    border-radius: 0.3em;
+}
+
+.mainBtn:hover:not(:disabled) {
+    background-color: #8aebf6;
+    color: black;
+    transition: all 0.3s 0.1s;
+    transition-timing-function: ease-in-out;
+    box-shadow: 0 0.5em 0.5em -0.3em #8aebf6;
+}
+
+.mainBtn:disabled {
+    background-color: #6d6c6c;
+    cursor: default;
+}
+
+#btnPanel {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+#addButton,
+#deleteButton {
+    margin-right: 6em;
+}
+
+/* Class to hide a control */
+.hidden {
+    display: none;
+}
+
+#cartItemsPanel {
+    border: solid thin #000000;
+    background-color: #f4eae6;
+    border-radius: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2em;
+    padding: 1rem;
+    width: 55%;
+}
+
+.inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inputLabel {
+    width: 4.5em;
+    float: left;
+    margin-right: 0em;
+}
+
+.inputField {
+    float: left;
+    margin-bottom: 0.6em;
+}
+
+input {
+    width: 17rem;
+}
+
+input:read-only {
+    background-color: #c3c0c0;
+    color: black;
+    font-weight: bold;
+}
+
+input:read-only:focus {
+    background-color: #c3c0c0;
+    outline: none;
+}
+
+#submitButton,
+#cancelButton {
+    background-color: #409e53;
+    color: #f4eae6;
+    font-weight: bold;
+    padding: 1em 2em;
+    margin-right: 0.7em;
+}
+
+#submitButton:hover:not(:disabled),
+#cancelButton:hover:not(:disabled) {
+    background-color: #86ff9e;
+    color: black;
+    transition: all 0.3s 0.1s;
+    transition-timing-function: ease-in-out;
+    box-shadow: 0 0.5em 0.5em -0.3em #86ff9e;
+}
